@@ -2,6 +2,12 @@ const blog = {
   name: "blog",
   title: "Blog",
   type: "document",
+  groups: [
+    {
+      name: "seo",
+      title: "SEO"
+    }
+  ],
   fields: [
     {
       name: "name",
@@ -32,7 +38,31 @@ const blog = {
       title: "Content",
       type: "array",
       of: [{ type: "block" }]
-    }
+    },
+    {
+      name: 'seoTitle', 
+      title: 'SEO Title', 
+      type: 'string', 
+      group: 'seo'
+    },
+    {
+      name: 'seoKeywords', 
+      title: 'SEO Keywords', 
+      type: 'string', 
+      group: 'seo'
+    },
+    {
+      name: 'seoSlug', 
+      title: 'SEO Slug', 
+      type: 'slug', 
+      group: 'seo'
+    },
+    {
+      name: 'seoImage', 
+      title: 'SEO Image', 
+      type: 'image', 
+      group: 'seo'
+    },
   ]
 }
 
