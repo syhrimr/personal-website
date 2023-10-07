@@ -1,5 +1,6 @@
 import blog from "./blog-schema";
+import home from "./home-schema";
 
-const schemas: any[] = [blog];
+const schemas: any[] = [home, blog];
 
 export default schemas;
