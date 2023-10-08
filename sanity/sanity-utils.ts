@@ -1,4 +1,4 @@
-import { Blog, Home, Work } from "@/types/Schemas";
+import { Blog, Home, Work, Header } from "@/types/Schemas";
 import { createClient, groq } from "next-sanity";
 import config from "./config/client-config";
 
@@ -72,6 +72,20 @@ export async function getWorks(): Promise<Work[]> {
       description,
       "techStacks": techStacks[].asset->url,
       "projects": projects[]
+    }`
+  )
+}
+
+export async function getHeader(): Promise<Header> {
+  return client.fetch(
+    groq`*[_type=="header"][0]{
+      _id,
+      _createdAt,
+      title,
+      "navbars": navbar[]->{
+        _type == 'reference' => @->,
+        _type != 'reference' => @
+      }
     }`
   )
 }

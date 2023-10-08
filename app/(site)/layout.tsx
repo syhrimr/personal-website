@@ -1,5 +1,6 @@
-import HeaderNavbar from '../_components/HeaderNavbar'
 import '../globals.css'
+
+import HeaderNavbar from '../_components/HeaderNavbar'
 
 import type { Metadata } from 'next'
 

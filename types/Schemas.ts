@@ -46,3 +46,15 @@ export type Home = Basic & {
   ctaButton?: CTAButton;
   works?: Work[]
 }
+
+type Navbar = {
+  text: string;
+  url: string;
+  type: "nav" | "sns";
+  snsType: string;
+}
+
+export type Header = Basic & {
+  title: string;
+  navbars: Navbar[]
+}
