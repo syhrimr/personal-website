@@ -1,6 +1,6 @@
+import HeaderNavbar from '../_components/HeaderNavbar'
 import '../globals.css'
 
-import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -15,16 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='max-w-3xl mx-auto py-10'>
-        <header>
-          <Link
-            href="/"
-            className="text-gradient-primary text-lg font-bold"
-          >
-            Syahri
-          </Link>
+      <body>
+        <header className='shadow-md'>
+          <HeaderNavbar />
         </header>
-        <main className='py-20'>
+        <main className='max-w-3xl mx-10 sm:mx-auto py-20'>
           {children}
         </main>
       </body>
