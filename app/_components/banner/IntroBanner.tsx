@@ -39,7 +39,7 @@ export default function IntroBanner({ params: home }: Props) {
         alt={home.title}
         width={240}
         height={240}
-        className="object-cover rounded-full"
+        className="object-cover rounded-full hidden sm:block"
       />
 
       <div>
