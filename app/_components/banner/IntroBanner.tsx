@@ -44,7 +44,7 @@ export default function IntroBanner({ params: home }: Props) {
 
       <div>
         <h1 className="text-7xl font-extrabold mb-6">
-          Hello, I&apos;m{" "}
+          Hi, I&apos;m{" "}
           <span className="text-gradient-primary">
             {home.title}
           </span>
