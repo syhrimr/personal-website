@@ -45,8 +45,8 @@ export default function WorkBanner({ params: home}: Props) {
 
             <div className="flex flex-1 flex-col justify-center mb-5 cursor-pointer select-none">
               <h2 className="text-2xl font-extrabold">{work.role}</h2>
-              <h3 className="font-semibold">{work.company}</h3>
-              <p>{work.startDate} - {work.endDate}</p>
+              <h3 className="font-semibold mb-2">{work.company}</h3>
+              <p>{work.startDate} <span className="font-extrabold">-</span> {work.endDate}</p>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export default function WorkBanner({ params: home}: Props) {
             </div>
 
             <span className="inline-block mb-2 font-semibold">Tech Stacks:</span>
-            <ul className="mb-6 flex flex-row items-center gap-4">
+            <ul className="mb-6 flex flex-row flex-wrap items-center gap-4">
               {work.techStacks && work.techStacks.map((tech, index) => (
                 <li key={index}>
                   <Image
@@ -71,10 +71,10 @@ export default function WorkBanner({ params: home}: Props) {
             </ul>
 
             <span className="inline-block mb-2 font-semibold">Projects:</span>
-            <ul className="flex flex-row items-center gap-4">
+            <ul className="flex flex-row flex-wrap items-center gap-4">
               {work.projects && work.projects.map((project, index) => (
-                <Link key={index} href={project.projectUrl}>
-                  <li className="p-4 border border-gray-500 w-[96px] hover:scale-110 shadow-md">
+                <li key={index} className="p-4 bg-white border border-gray-500 w-[96px] hover:scale-110 shadow-md self-stretch">
+                  <Link href={project.projectUrl}>
                     <Image
                       src={project.projectIcon}
                       alt={project.projectName}
@@ -83,8 +83,8 @@ export default function WorkBanner({ params: home}: Props) {
                       className="object-cover h-[36px] mx-auto mb-2"
                     />
                     <span className="inline-block w-full text-center">{project.projectName}</span>
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
