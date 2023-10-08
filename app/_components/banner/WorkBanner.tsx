@@ -11,8 +11,15 @@ type Props = {
 }
 
 export default function WorkBanner({ params: home}: Props) {
-  function toggleCollapsible(index: number) {
-    const item = document.querySelector(`[data-w-item="${index}"] #collapsible-item`);
+  function toggleCollapsible(itemIndex: number) {
+    const items = document.querySelectorAll(`[data-w-item]`);
+    items.forEach((item, index) => {
+      if (index !== itemIndex) {
+        const child = item.querySelector("#collapsible-item");
+        child?.classList.add("hidden");
+      }
+    });
+    const item = document.querySelector(`[data-w-item="${itemIndex}"] #collapsible-item`);
     item?.classList.toggle("hidden");
     item?.scrollIntoView({ behavior: "smooth" });
   }
@@ -22,7 +29,11 @@ export default function WorkBanner({ params: home}: Props) {
       <h1 className="text-4xl font-extrabold mb-10">{home.title}</h1>
 
       {home.works?.map((work, index) => (
-        <div key={work._id} data-w-item={index} className="flex flex-col gap-5">
+        <div
+          key={work._id}
+          data-w-item={index}
+          className="mb-6 last:mb-0 p-6 flex flex-col gap-5 border border-gray-500 rounded-md shadow-md"
+        >
           <div className="flex flex-row gap-5" onClick={() => toggleCollapsible(index)}>
             <Image
               src={work.companyIcon}
@@ -39,14 +50,14 @@ export default function WorkBanner({ params: home}: Props) {
             </div>
           </div>
 
-          <div id="collapsible-item" className="hidden flex flex-col gap-4">
-            <div>
+          <div id="collapsible-item" className="hidden">
+            <div className="mb-6">
               <PortableText value={work.description} />
             </div>
 
-            <span className="mr-4 font-semibold">Tech Stacks:</span>
-            <ul className="flex flex-row items-center gap-4">
-              {work.techStacks.map((tech, index) => (
+            <span className="inline-block mb-2 font-semibold">Tech Stacks:</span>
+            <ul className="mb-6 flex flex-row items-center gap-4">
+              {work.techStacks && work.techStacks.map((tech, index) => (
                 <li key={index}>
                   <Image
                     src={tech}
@@ -59,9 +70,9 @@ export default function WorkBanner({ params: home}: Props) {
               ))}
             </ul>
 
-            <span className="font-semibold">Projects:</span>
+            <span className="inline-block mb-2 font-semibold">Projects:</span>
             <ul className="flex flex-row items-center gap-4">
-              {work.projects.map((project, index) => (
+              {work.projects && work.projects.map((project, index) => (
                 <Link key={index} href={project.projectUrl}>
                   <li className="p-4 border border-gray-500 w-[96px] hover:scale-110 shadow-md">
                     <Image
