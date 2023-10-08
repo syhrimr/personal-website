@@ -1,4 +1,4 @@
-import { Blog, Home } from "@/types/Schemas";
+import { Blog, Home, Work } from "@/types/Schemas";
 import { createClient, groq } from "next-sanity";
 import config from "./config/client-config";
 
@@ -42,7 +42,36 @@ export async function getHomes(): Promise<Home[]> {
       subtitle,
       bannerType,
       titlePosition,
-      "profilePicture": profilePicture.asset->url
+      "profilePicture": profilePicture.asset->url,
+      ctaButton,
+      "works": work[]->{
+        _type == 'reference' => @->,
+        _type != 'reference' => @,
+        "companyIcon": companyIcon.asset->url,
+        "techStacks": techStacks[].asset->url,
+        "projects": projects[]->{
+          _type == 'reference' => @->,
+          _type != 'reference' => @,
+          "projectIcon": projectIcon.asset->url
+        }
+      }
+    }`
+  )
+}
+
+export async function getWorks(): Promise<Work[]> {
+  return client.fetch(
+    groq`*[_type=="work"]{
+      _id,
+      _createdAt,
+      role,
+      company,
+      "companyIcon": companyIcon.asset->url,
+      startDate,
+      endDate,
+      description,
+      "techStacks": techStacks[].asset->url,
+      "projects": projects[]
     }`
   )
 }

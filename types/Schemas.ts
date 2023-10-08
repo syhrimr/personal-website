@@ -15,10 +15,34 @@ export type Blog = Basic & {
   content: PortableTextBlock[];
 }
 
+type Project = {
+  projectName: string;
+  projectUrl: string;
+  projectIcon: string;
+}
+
+export type Work = Basic & {
+  role: string;
+  company: string;
+  companyIcon: string;
+  startDate: string;
+  endDate: string;
+  description: PortableTextBlock[];
+  techStacks: any[];
+  projects: Project[]
+}
+
+type CTAButton = {
+  text: string;
+  url: string;
+}
+
 export type Home = Basic & {
   title: string;
   subtitle: PortableTextBlock[];
   bannerType: 'intro' | 'work';
   titlePosition: 'left' | 'center' | 'right';
   profilePicture: string;
+  ctaButton?: CTAButton;
+  works?: Work[]
 }

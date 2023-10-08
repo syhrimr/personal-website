@@ -52,6 +52,29 @@ const home = {
           type: "string"
         }
       ]
+    },
+    {
+      name: "ctaButton",
+      title: "CTA Button",
+      type: "object",
+      fields: [
+        { name: "text", title: "Text",  type: "string" },
+        { name: "url",  title: "URL",   type: "url" }
+      ]
+    },
+    {
+      name: "work",
+      title: "Work Experiences",
+      type: "array",
+      hidden: ({ document }: any) => document?.bannerType !== "work",
+      of: [
+        {
+          type: "reference",
+          to: [
+            { type: "work" }
+          ]
+        }
+      ]
     }
   ]
 }
