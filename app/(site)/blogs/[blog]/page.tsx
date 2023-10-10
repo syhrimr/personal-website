@@ -1,5 +1,6 @@
 import { getBlog } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import Balancer from "react-wrap-balancer";
 
 type Props = {
   params: { blog: string }
@@ -13,12 +14,14 @@ export default async function BlogPage({ params }: Props) {
     <div>
       <header className="flex items-center justify-between mb-5">
         <h1 className="text-gradient-primary text-5xl drop-shadow font-extrabold">
-          {blog.name}
+          <Balancer>{blog.name}</Balancer>
         </h1>
       </header>
 
       <div className="text-lg text-gray-700">
-        <PortableText value={blog.content} />
+        <Balancer>
+          <PortableText value={blog.content} />
+        </Balancer>
       </div>
     </div>
   );

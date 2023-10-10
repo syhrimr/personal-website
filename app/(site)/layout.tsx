@@ -3,6 +3,7 @@ import '../globals.css'
 import HeaderNavbar from '../_components/HeaderNavbar'
 
 import type { Metadata } from 'next'
+import { Provider } from 'react-wrap-balancer'
 
 export const metadata: Metadata = {
   title: 'Syahri - Portfolio',
@@ -21,7 +22,9 @@ export default function RootLayout({
           <HeaderNavbar />
         </header>
         <main className='max-w-3xl mx-10 sm:mx-auto py-20'>
-          {children}
+          <Provider>
+            {children}
+          </Provider>
         </main>
       </body>
     </html>

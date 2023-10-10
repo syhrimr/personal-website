@@ -5,6 +5,7 @@ import { Home } from "@/types/Schemas"
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import Link from "next/link"
+import Balancer from "react-wrap-balancer";
 
 type Props = {
   params: Home
@@ -52,7 +53,9 @@ export default function WorkBanner({ params: home}: Props) {
 
           <div id="collapsible-item" className="hidden">
             <div className="mb-6">
-              <PortableText value={work.description} />
+              <Balancer>
+                <PortableText value={work.description} />
+              </Balancer>
             </div>
 
             <span className="inline-block mb-2 font-semibold">Tech Stacks:</span>
