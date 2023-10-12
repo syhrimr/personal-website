@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "sanity build && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,7 +19,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-wrap-balancer": "^1.1.0",
-    "sanity": "^3.17.0"
+    "sanity": "^3.17.0",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@types/node": "^20",
