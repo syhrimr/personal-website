@@ -4,6 +4,10 @@ const blog = {
   type: "document",
   groups: [
     {
+      name: "content",
+      title: "Content"
+    },
+    {
       name: "seo",
       title: "SEO"
     }
@@ -12,13 +16,15 @@ const blog = {
     {
       name: "name",
       title: "Name",
-      type: "string"
+      type: "string",
+      group: "content"
     },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "name" }
+      options: { source: "name" },
+      group: "content"
     },
     {
       name: "image",
@@ -31,7 +37,8 @@ const blog = {
           title: "Alt",
           type: "string"
         }
-      ]
+      ],
+      group: "content"
     },
     {
       name: "content",
@@ -41,7 +48,8 @@ const blog = {
         { type: "block" },
         { type: "image" },
         { type: "code" }
-      ]
+      ],
+      group: "content"
     },
     {
       name: 'seoTitle', 
