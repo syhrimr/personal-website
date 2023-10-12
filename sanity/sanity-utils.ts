@@ -6,7 +6,7 @@ const client = createClient(config);
 
 export async function getBlogs(): Promise<Blog[]> {
   return client.fetch(
-    groq`*[_type=="blog"]{
+    groq`*[_type=="blog"] | order(_createdAt desc){
       _id,
       _createdAt,
       name,
