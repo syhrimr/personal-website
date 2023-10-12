@@ -10,7 +10,7 @@ export default async function BlogPage() {
         My Blogs
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
         {blogs.map((blog) => (
           <BlogCard key={blog._id} params={blog} />
         ))}
