@@ -23,24 +23,22 @@ function SampleImageComponent({ value, isInline }: { value: any, isInline: boole
         .url();
 
   return (
-    <Balancer>
-      <div className='my-4 flex flex-col items-center text-center'>
-        <Image
-          src={imageSrc}
-          alt={value.alt || 'blog image'}
-          width={width}
-          height={height}
-          loading="lazy"
-          style={{
-            display: isInline ? 'inline-block' : 'block',
-            aspectRatio: width / height,
-            marginBottom: '0.5rem'
-          }}
-        />
+    <div className='my-4 flex flex-col items-center text-center'>
+      <Image
+        src={imageSrc}
+        alt={value.alt || 'blog image'}
+        width={width}
+        height={height}
+        loading="lazy"
+        style={{
+          display: isInline ? 'inline-block' : 'block',
+          aspectRatio: width / height,
+          marginBottom: '0.5rem'
+        }}
+      />
 
-        {value.caption && <span className='inline-block text-xs italic text-slate-500'>{value.caption}</span>}
-      </div>
-    </Balancer>
+      {value.caption && <span className='inline-block text-xs italic text-slate-500'>{value.caption}</span>}
+    </div>
   )
 };
 
@@ -101,7 +99,7 @@ export default function CustomRenderBlock({ params }: Props) {
       h1: ({children}) => <h1 className="text-5xl my-5 drop-shadow font-extrabold">{children}</h1>,
       h2: ({children}) => <h2 className="text-3xl my-5 drop-shadow font-extrabold">{children}</h2>,
       h3: ({children}) => <h3 className="text-2xl my-5 drop-shadow font-extrabold">{children}</h3>,
-      normal: ({children}) => <p className="inline-block py-3">{children}</p>,
+      normal: ({children}) => <p className="py-3">{children}</p>,
       blockquote: ({children}) => <blockquote className="p-4 mt-2 mb-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800my-3">{children}</blockquote>,
     },
     list: {
@@ -115,11 +113,9 @@ export default function CustomRenderBlock({ params }: Props) {
   };
 
   return (
-    <Balancer>
       <PortableText
         value={params}
         components={components}
       />
-    </Balancer>
   )
 }
