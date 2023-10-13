@@ -17,7 +17,7 @@ export default async function BlogPage() {
         </Balancer>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="flex flex-row flex-wrap gap-8">
         {blogs.map((blog) => (
           <BlogCard key={blog._id} params={blog} />
         ))}

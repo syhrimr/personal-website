@@ -21,7 +21,7 @@ export default function RootLayout({
         <header className='shadow-md'>
           <HeaderNavbar />
         </header>
-        <main className='max-w-3xl mx-10 sm:mx-auto py-20'>
+        <main className='max-w-3xl mx-10 md:mx-auto py-20'>
           <Provider>
             {children}
           </Provider>
