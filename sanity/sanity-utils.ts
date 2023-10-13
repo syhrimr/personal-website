@@ -2,7 +2,7 @@ import { Blog, Home, Work, Header } from "@/types/Schemas";
 import { createClient, groq } from "next-sanity";
 import config from "./config/client-config";
 
-const client = createClient(config);
+export const client = createClient(config);
 
 export async function getBlogs(): Promise<Blog[]> {
   return client.fetch(

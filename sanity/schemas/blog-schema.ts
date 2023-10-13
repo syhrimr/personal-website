@@ -46,7 +46,14 @@ const blog = {
       type: "array",
       of: [
         { type: "block" },
-        { type: "image" },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            { name: "caption", title: "Caption", type: "string" },
+            { name: "alt", title: "Alternative Text", type: "string" },
+          ]
+        },
         { type: "code" }
       ],
       group: "content"

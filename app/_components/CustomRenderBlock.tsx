@@ -1,4 +1,5 @@
-import urlBuilder from '@sanity/image-url'
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '@/sanity/sanity-utils'
 import { getImageDimensions } from '@sanity/asset-utils'
 import { PortableTextComponents } from '@portabletext/react'
 import { PortableTextBlock } from 'sanity'
@@ -12,29 +13,34 @@ type Props = {
 }
 
 function SampleImageComponent({ value, isInline }: { value: any, isInline: boolean }) {
-  const { width, height } = getImageDimensions(value)
-  const imageSrc = urlBuilder()
+  const { width, height } = getImageDimensions(value);
+  const imageBuilder = imageUrlBuilder(client);
+  const imageSrc = imageBuilder
         .image(value)
         .width(isInline ? 100 : 800)
-        .height(isInline ? 80 : 640)
         .fit('max')
         .auto('format')
         .url();
 
-  console.log(imageSrc)
-
   return (
-    <Image
-      src={imageSrc}
-      alt={value.alt || 'blog image'}
-      width={width}
-      height={height}
-      loading="lazy"
-      style={{
-        display: isInline ? 'inline-block' : 'block',
-        aspectRatio: width / height,
-      }}
-    />
+    <Balancer>
+      <div className='my-4 flex flex-col items-center text-center'>
+        <Image
+          src={imageSrc}
+          alt={value.alt || 'blog image'}
+          width={width}
+          height={height}
+          loading="lazy"
+          style={{
+            display: isInline ? 'inline-block' : 'block',
+            aspectRatio: width / height,
+            marginBottom: '0.5rem'
+          }}
+        />
+
+        {value.caption && <span className='inline-block text-xs italic text-slate-500'>{value.caption}</span>}
+      </div>
+    </Balancer>
   )
 };
 
