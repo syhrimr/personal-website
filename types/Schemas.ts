@@ -13,6 +13,7 @@ export type Blog = Basic & {
   image: string;
   url: string;
   content: PortableTextBlock[];
+  tags: string[];
 }
 
 type Project = {

@@ -59,6 +59,15 @@ const blog = {
       group: "content"
     },
     {
+      name: "tags",
+      Title: "Tags",
+      type: "array",
+      of: [
+        { type: "string" }
+      ],
+      group: "content"
+    },
+    {
       name: 'seoTitle', 
       title: 'SEO Title', 
       type: 'string', 
