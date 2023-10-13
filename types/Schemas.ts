@@ -57,3 +57,13 @@ export type Header = Basic & {
   title: string;
   navbars: Navbar[]
 }
+
+export type PersonalProject= Basic & {
+  title: string;
+  slug: string;
+  url: string;
+  github: string;
+  icon: string;
+  description: PortableTextBlock[];
+  techs: string[];
+}

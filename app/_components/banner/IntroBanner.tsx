@@ -1,38 +1,15 @@
 import { Home } from "@/types/Schemas"
 
 import { PortableText } from "@portabletext/react"
-import Image from "next/image"
 import Balancer from "react-wrap-balancer"
+import Image from "next/image"
+import CustomCTAButton from "../CustomCTAButton"
 
 type Props = {
   params: Home
 }
 
-type CTAButtonProps = {
-  text: string | undefined;
-  url: string | undefined;
-}
-
 export default function IntroBanner({ params: home }: Props) {
-  function CTAButton({ text, url }: CTAButtonProps) {
-    if (!url && !text) {
-      return null;
-    }
-
-    return (
-      <a
-        href={url}
-        rel="noopener noreferrer"
-        target="_blank"
-        className="h-[48px] w-[150px] p-4 pt-3 block bg-gradient-primary text-white rounded-md shadow-sm hover:scale-110 hover:shadow-md"
-      >
-        <span className="block text-center font-semibold">
-          <Balancer>{text}</Balancer>
-        </span>
-      </a>
-    );
-  }
-
   return (
     <section className="flex flex-row items-center gap-5 mb-20">
       <Image
@@ -61,7 +38,7 @@ export default function IntroBanner({ params: home }: Props) {
         </div>
 
         <div>
-          <CTAButton url={home.ctaButton?.url} text={home.ctaButton?.text} />
+          <CustomCTAButton url={home.ctaButton?.url} text={home.ctaButton?.text} />
         </div>
       </div>
     </section>

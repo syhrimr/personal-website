@@ -1,4 +1,4 @@
-import { Blog, Home, Work, Header } from "@/types/Schemas";
+import { Blog, Home, Work, Header, PersonalProject } from "@/types/Schemas";
 import { createClient, groq } from "next-sanity";
 import config from "./config/client-config";
 
@@ -89,5 +89,38 @@ export async function getHeader(): Promise<Header> {
         _type != 'reference' => @
       }
     }`
+  )
+}
+
+export async function getPersonalProjects(): Promise<PersonalProject[]> {
+  return client.fetch(
+    groq`*[_type=="personalProject"] | order(_createdAt desc){
+      _id,
+      _createdAt,
+      title,
+      "slug": slug.current,
+      url,
+      github,
+      "icon": icon.asset->url,
+      description,
+      techs
+    }`
+  )
+}
+
+export async function getPersonalProject(slug: string): Promise<PersonalProject> {
+  return client.fetch(
+    groq`*[_type=="personalProject" && slug.current==$slug][0]{
+      _id,
+      _createdAt,
+      title,
+      "slug": slug.current,
+      url,
+      github,
+      "icon": icon.asset->url,
+      description,
+      techs
+    }`,
+    { slug }
   )
 }
