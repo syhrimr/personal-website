@@ -11,10 +11,17 @@ export default function BurgerButton({ navbars }: { navbars: any[] }) {
   function toggleMenu() {
     setOpenMenu(!isOpenMenu);
 
-    const menuContainer = document.getElementById("sm-menu-container");
     const body = document.body;
-    menuContainer?.classList.toggle("hidden");
+    const menuContainer = document.getElementById("sm-menu-container");
     body.style.overflowY = isOpenMenu ? "hidden" : "scroll";
+
+    if (isOpenMenu) {
+      menuContainer?.classList.remove("hidden");
+      menuContainer?.classList.add("flex");
+    } else {
+      menuContainer?.classList.remove("flex");
+      menuContainer?.classList.add("hidden");
+    }
   }
 
   return (
@@ -28,7 +35,7 @@ export default function BurgerButton({ navbars }: { navbars: any[] }) {
 
         <div
           id="sm-menu-container"
-          className='flex flex-col gap-16 py-4 bg-white absolute w-full h-[100svh] top-28'
+          className="hidden flex-col gap-16 py-4 bg-white absolute w-full h-[100svh] top-28"
         >
           <ul className='flex flex-col gap-4'>
             {navbars.map((navbar, index) => ( 
