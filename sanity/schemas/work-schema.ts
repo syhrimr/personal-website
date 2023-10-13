@@ -54,7 +54,16 @@ const work = {
       name: "techStacks",
       title: "Tech Stacks",
       type: "array",
-      of: [{ type: "image", options: { hotspot: true } }]
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            { name: "title", title: "Title", type: "string" },
+            { name: "alt", title: "Alternative Text", type: "string" },
+          ]
+        }
+      ]
     },
     {
       name: "projects",

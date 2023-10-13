@@ -73,7 +73,7 @@ export default async function HeaderNavbar() {
   return (
     <nav className='max-w-3xl mx-10 sm:mx-auto py-8 relative'>
       <div className='flex flex-row gap-4 justify-between'>
-        <ul className='flex flex-row gap-4'>
+        <ul className='flex flex-row gap-6'>
           {navbars.map((navbar, index) => ( 
             navbar.type === "nav" &&
             <li

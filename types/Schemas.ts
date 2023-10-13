@@ -1,13 +1,11 @@
 import { PortableTextBlock } from "sanity";
 
 type Basic = {
-  _id: string,
-  _createdAt: Date
+  _id: string;
+  _createdAt: string;
 }
 
 export type Blog = Basic & {
-  _id: string;
-  _createdAt: Date;
   name: string;
   slug: string;
   image: string;

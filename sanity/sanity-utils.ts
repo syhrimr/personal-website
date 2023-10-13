@@ -28,7 +28,8 @@ export async function getBlog(slug: string): Promise<Blog> {
       "slug": slug.current,
       "image": image.asset->url,
       url,
-      content
+      content,
+      tags
     }`,
     { slug }
   )

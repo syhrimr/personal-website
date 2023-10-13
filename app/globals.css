@@ -7,5 +7,17 @@
 }
 
 .text-gradient-primary {
-  @apply bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent
+  @apply bg-gradient-to-r from-orange-400 via-red-500 to-purple-600;
+  @apply bg-clip-text text-transparent;
 }
+
+.tag-card {
+  @apply p-1 inline-flex items-center bg-slate-100 rounded-lg;;
+  @apply text-xs;
+}
+
+.tag-inline {
+  @apply p-1 inline-flex items-center bg-slate-100 rounded-lg;;
+  @apply text-base font-semibold drop-shadow-sm;
+}
+/* py-1 px-2 inline-flex items-center leading-sm bg-slate-200 rounded-full */
