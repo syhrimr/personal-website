@@ -2,6 +2,8 @@
 
 import { Home } from "@/types/Schemas"
 
+import { format } from "date-fns";
+
 import { PortableText } from "@portabletext/react"
 import Image from "next/image"
 import Link from "next/link"
@@ -11,7 +13,7 @@ type Props = {
   params: Home
 }
 
-export default function WorkBanner({ params: home}: Props) {
+export default function WorkBanner({ params: home }: Props) {
   function toggleCollapsible(itemIndex: number) {
     const items = document.querySelectorAll(`[data-w-item]`);
     items.forEach((item, index) => {
@@ -23,6 +25,11 @@ export default function WorkBanner({ params: home}: Props) {
     const item = document.querySelector(`[data-w-item="${itemIndex}"] #collapsible-item`);
     item?.classList.toggle("hidden");
     item?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function setFormatDate(date: string) {
+    const template = "dd MMM yyyy";
+    return format(new Date(date), template);
   }
 
   return (
@@ -47,7 +54,11 @@ export default function WorkBanner({ params: home}: Props) {
             <div className="flex flex-1 flex-col justify-center mb-5 cursor-pointer select-none">
               <h2 className="text-2xl font-extrabold">{work.role}</h2>
               <h3 className="font-semibold mb-2">{work.company}</h3>
-              <p>{work.startDate} <span className="font-extrabold">-</span> {work.endDate}</p>
+              <p>
+                {setFormatDate(work.startDate)}{" "}
+                <span className="font-extrabold">-</span>{" "}
+                {setFormatDate(work.endDate)}
+              </p>
             </div>
           </div>
 
