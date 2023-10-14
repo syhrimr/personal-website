@@ -29,12 +29,12 @@ export default async function BlogPage({ params }: Props) {
         <h1 className="mb-8 text-gradient-primary text-5xl drop-shadow font-extrabold">
           <Balancer>{blog.name}</Balancer>
         </h1>
-        <div className="flex flex-row mb-1">
-          <p className="w-1/6 font-semibold">Published</p>
+        <div className="flex flex-row gap-2 mb-1">
+          <p className="w-[96px] font-semibold">Published</p>
           <span>{publishedDate}</span>
         </div>
-        <div className="flex flex-row">
-          <p className="w-1/6 font-semibold">Tags</p>
+        <div className="flex flex-row gap-2">
+          <p className="w-[96px] font-semibold">Tags</p>
           <span className="flex flex-row gap-2">
             <CustomTags data={blog.tags} tagClassess="tag-inline" />
           </span>

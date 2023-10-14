@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: Props) {
           </span>
         </Link>
         
-        <div className="flex flex-col sm:flex-row mb-4 sm:mb-0 items-center gap-4">
+        <div className="flex flex-row mb-4 sm:mb-0 items-center gap-4">
           <Image
             src={project.icon}
             alt={project.title}
@@ -41,7 +41,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         <div className="flex flex-row">
-          <p className="w-1/6 font-semibold mb-4 sm:mb-0">Links</p>
+          <p className="w-[96px] font-semibold mr-2">Links</p>
           <div className="flex flex-row gap-4">
             <CustomCTAButton
               url={project.url}
@@ -58,8 +58,8 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row">
-          <p className="w-1/6 font-semibold mb-4 sm:mb-0">Tech Stacks</p>
+        <div className="flex flex-row">
+          <p className="w-[96px] font-semibold mr-2">Tech Stacks</p>
           <span className="flex flex-row gap-2">
             <CustomTags data={project.techs} tagClassess="tag-inline" />
           </span>
