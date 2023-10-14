@@ -37,7 +37,7 @@ export default function IntroBanner({ params: home }: Props) {
           </Balancer>
         </div>
 
-        <div>
+        <div className="md:w-1/3">
           <CustomCTAButton url={home.ctaButton?.url} text={home.ctaButton?.text} />
         </div>
       </div>
