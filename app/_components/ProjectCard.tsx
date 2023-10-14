@@ -31,12 +31,12 @@ export default function ProjectCard({ params: project }: Props) {
       )}
 
       <div className="flex flex-col flex-1 gap-1 p-2">
-        <div className="font-extrabold text-gradient-primary flex-1">
-          <Balancer>{project.title}</Balancer>
+        <div className="mb-2">
+          <CustomTags data={project.techs} tagClassess="tag-card" />
         </div>
 
-        <div className="">
-          <CustomTags data={project.techs} tagClassess="tag-card" />
+        <div className="font-extrabold text-gradient-primary flex-1">
+          <Balancer>{project.title}</Balancer>
         </div>
       </div>
     </Link>
