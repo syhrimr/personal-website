@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react"
 import Balancer from "react-wrap-balancer"
 import Image from "next/image"
 import CustomCTAButton from "../CustomCTAButton"
+import CustomRenderBlock from "../CustomRenderBlock"
 
 type Props = {
   params: Home
@@ -32,9 +33,7 @@ export default function IntroBanner({ params: home }: Props) {
         </h1>
   
         <div className="text-xl text-gray-500 mb-8">
-          <Balancer>
-            <PortableText value={home.subtitle} />
-          </Balancer>
+          <CustomRenderBlock params={home.subtitle} />
         </div>
 
         <div className="md:w-1/3">
