@@ -3,6 +3,22 @@ import { getPersonalProjects } from "@/sanity/sanity-utils";
 import Balancer from "react-wrap-balancer";
 import ProjectCard from "@/app/_components/ProjectCard";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "List of personal projects",
+  metadataBase: new URL("https://syhrimr.vercel.app"),
+  openGraph: {
+    title: "Syahri - Blogs",
+    description: "List of personal blogs and documentation",
+    url: "https://syhrimr.vercel.app/blogs",
+    siteName: "syhrimr",
+    locale: "en_US",
+    type: "website"
+  }
+};
+
 export default async function ProjectsPage() {
   const projects = await getPersonalProjects();
 

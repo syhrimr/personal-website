@@ -2,6 +2,22 @@ import BlogCard from "@/app/_components/BlogCard";
 import { getBlogs } from "@/sanity/sanity-utils";
 import Balancer from "react-wrap-balancer";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blogs",
+  description: "List of personal blogs and documentation",
+  metadataBase: new URL("https://syhrimr.vercel.app"),
+  openGraph: {
+    title: "Syahri - Projects",
+    description: "List of personal projects",
+    url: "https://syhrimr.vercel.app/projects",
+    siteName: "syhrimr",
+    locale: "en_US",
+    type: "website"
+  }
+};
+
 export default async function BlogPage() {
   const blogs = await getBlogs();
 

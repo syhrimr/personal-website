@@ -11,6 +11,34 @@ type Props = {
   params: { project: string };
 };
 
+export async function generateMetadata({ params }: Props) {
+  const slug = params.project;
+  const project = await getPersonalProject(slug);
+
+  const baseUrl = "https://syhrimr.vercel.app";
+
+  return {
+    title: project.seoTitle,
+    description: project.seoDescription,
+    metadabase: new URL(`${baseUrl}`),
+    openGraph: {
+      title: `Syahri - ${project.seoTitle}`,
+      description: project.seoDescription,
+      url: `${baseUrl}/blog/${project.seoSlug}`,
+      images: [
+        {
+          url: project.seoImage,
+          width: 256,
+          height: 256
+        }
+      ],
+      siteName: `Syahri - ${project.seoTitle}`,
+      locale: "en_US",
+      type: "website"
+    }
+  };
+}
+
 export default async function ProjectPage({ params }: Props) {
   const slug = params.project;
   const project = await getPersonalProject(slug);

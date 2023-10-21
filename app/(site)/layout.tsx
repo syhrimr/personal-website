@@ -7,8 +7,13 @@ import { Provider } from "react-wrap-balancer";
 import GoTopButton from "../_components/GoTopButton";
 
 export const metadata: Metadata = {
-  title: "Syahri - Portfolio",
-  description: "Personal Website for Portfolio Showcase"
+  title: {
+    default: "Syahri - Portfolio",
+    template: "Syahri - %s"
+  },
+  authors: [{ name: "Syahri Maulana Ramadhan" }],
+  creator: "Syahri Maulana Ramadhan",
+  keywords: ["Frontend Developer", "Syahri", "Developer"]
 };
 
 export default function RootLayout({

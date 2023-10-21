@@ -1,5 +1,6 @@
 import { getBlog } from "@/sanity/sanity-utils";
 import { parseISO, format } from "date-fns";
+import { cache } from "react";
 
 import Balancer from "react-wrap-balancer";
 import CustomRenderBlock from "@/app/_components/CustomRenderBlock";
@@ -9,6 +10,34 @@ import CustomTags from "@/app/_components/CustomTags";
 type Props = {
   params: { blog: string };
 };
+
+export async function generateMetadata({ params }: Props) {
+  const slug = params.blog;
+  const blog = await getBlog(slug);
+
+  const baseUrl = "https://syhrimr.vercel.app";
+
+  return {
+    title: blog.seoTitle,
+    description: blog.seoDescription,
+    metadabase: new URL(`${baseUrl}`),
+    openGraph: {
+      title: `Syahri - ${blog.seoTitle}`,
+      description: blog.seoDescription,
+      url: `${baseUrl}/blog/${blog.seoSlug}`,
+      images: [
+        {
+          url: blog.seoImage,
+          width: 256,
+          height: 256
+        }
+      ],
+      siteName: `Syahri - ${blog.seoTitle}`,
+      locale: "en_US",
+      type: "website"
+    }
+  };
+}
 
 export default async function BlogPage({ params }: Props) {
   const slug = params.blog;
