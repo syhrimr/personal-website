@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .bg-gradient-primary {
   @apply bg-gradient-to-r from-orange-400 via-red-500 to-purple-600;
 }
