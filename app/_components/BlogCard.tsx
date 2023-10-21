@@ -45,7 +45,7 @@ export default function BlogCards({ params: blog }: Props) {
 
         <div className="flex flex-row items-center gap-2 mb-1">
           <svg
-            className="opacity-75"
+            className="relative -z-10 opacity-75"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             id="Capa_1"

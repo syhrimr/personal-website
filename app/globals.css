@@ -17,7 +17,7 @@
 }
 
 .tag-inline {
-  @apply p-1 inline-flex items-center bg-slate-100 rounded-lg;
+  @apply p-1 inline-flex items-center bg-slate-100 rounded-lg -z-10;
   @apply text-base font-semibold drop-shadow-sm;
 }
 

@@ -21,13 +21,13 @@ export default function ProjectCard({ params: project }: Props) {
       title={project.title}
     >
       {project.icon && (
-        <div className="max-h-32 overflow-hidden">
+        <div className="max-h-32 overflow-hidden flex justify-center">
           <Image
             src={project.icon}
             alt={project.title}
-            width={256}
+            width={128}
             height={128}
-            className="object-none w-[256px] h-[128px]"
+            className="object-none w-[128px] h-[128px]"
             style={{ height: "auto" }}
           />
         </div>

@@ -21,7 +21,7 @@ export default async function BlogPage({ params }: Props) {
         <Link className="block sm:hidden mb-6" href={`/blogs`}>
           <span className="text-gradient-primary font-extrabold">← Back</span>
         </Link>
-        <h1 className="mb-8 text-gradient-primary text-5xl drop-shadow font-extrabold">
+        <h1 className="mb-8 text-gradient-primary text-5xl drop-shadow font-extrabold -z-10">
           <Balancer>{blog.name}</Balancer>
         </h1>
         <div className="flex flex-row gap-2 mb-1">

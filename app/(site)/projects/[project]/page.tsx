@@ -8,8 +8,8 @@ import CustomCTAButton from "@/app/_components/CustomCTAButton";
 import Image from "next/image";
 
 type Props = {
-  params: { project: string }
-}
+  params: { project: string };
+};
 
 export default async function ProjectPage({ params }: Props) {
   const slug = params.project;
@@ -18,15 +18,10 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <div className="w-full">
       <header className="flex flex-col justify-between gap-4 mb-6">
-        <Link
-          className="block sm:hidden mb-6"
-          href={`/projects`}
-        >
-          <span className="text-gradient-primary font-extrabold">
-            ← Back
-          </span>
+        <Link className="block sm:hidden mb-6" href={`/projects`}>
+          <span className="text-gradient-primary font-extrabold">← Back</span>
         </Link>
-        
+
         <div className="flex flex-row mb-4 sm:mb-0 items-center gap-4">
           <Image
             src={project.icon}
@@ -34,8 +29,8 @@ export default async function ProjectPage({ params }: Props) {
             width={48}
             height={48}
           />
-          
-          <h1 className="mb-4 text-gradient-primary text-5xl drop-shadow font-extrabold">
+
+          <h1 className="mb-4 text-gradient-primary text-5xl drop-shadow font-extrabold -z-10">
             <Balancer>{project.title}</Balancer>
           </h1>
         </div>
@@ -61,7 +56,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="flex flex-row">
           <p className="w-[96px] font-semibold mr-2">Tech Stacks</p>
           <span className="flex flex-row gap-2">
-            <CustomTags data={project.techs} tagClassess="tag-inline" />
+            <CustomTags data={project.techs} expand tagClassess="tag-inline" />
           </span>
         </div>
       </header>
@@ -72,5 +67,5 @@ export default async function ProjectPage({ params }: Props) {
         <CustomRenderBlock params={project.description} />
       </div>
     </div>
-  )
+  );
 }

@@ -8,7 +8,7 @@ export default async function HeaderNavbar() {
   const { navbars } = await getHeader();
 
   return (
-    <nav className="max-w-3xl lg:max-w-4xl mx-10 md:mx-auto py-8 relative">
+    <nav className="max-w-3xl lg:max-w-4xl mx-10 md:mx-auto py-8 relative z-20">
       <div className="hidden sm:flex flex-row gap-4 justify-between">
         <ul className="flex flex-row gap-6">
           {navbars.map(
