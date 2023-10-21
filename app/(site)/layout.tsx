@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header className="shadow-md">
+        <header className="header-sticky bg-white shadow-md">
           <HeaderNavbar />
         </header>
-        <main className="max-w-3xl lg:max-w-4xl mx-10 md:mx-auto py-20">
+        <main className="max-w-3xl lg:max-w-4xl mx-10 md:mx-auto py-20 pt-40">
           <Provider>{children}</Provider>
         </main>
       </body>
