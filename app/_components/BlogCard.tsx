@@ -21,13 +21,17 @@ export default function BlogCards({ params: blog }: Props) {
       title={blog.name}
     >
       {blog.image && (
-        <Image
-          src={blog.image}
-          alt={blog.name}
-          width={256}
-          height={128}
-          className="object-none w-[256px] h-[128px]"
-        />
+        <div className="max-h-32 overflow-hidden">
+          <Image
+            src={blog.image}
+            alt={blog.name}
+            width={256}
+            height={128}
+            className="object-none w-[256px] h-[128px]"
+            style={{ height: "auto" }}
+            priority={true}
+          />
+        </div>
       )}
 
       <div className="flex flex-col flex-1 gap-1 p-2">
