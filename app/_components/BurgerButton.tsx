@@ -13,7 +13,13 @@ export default function BurgerButton({ navbars }: { navbars: any[] }) {
 
     const body = document.body;
     const menuContainer = document.getElementById("sm-menu-container");
+    const goTopButton = document.getElementById("go-top-button");
+
     body.style.overflowY = isOpenMenu ? "hidden" : "scroll";
+
+    if (goTopButton) {
+      goTopButton?.classList.toggle("invisible");
+    }
 
     if (isOpenMenu) {
       menuContainer?.classList.remove("hidden");
