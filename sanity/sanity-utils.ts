@@ -16,7 +16,7 @@ export async function getBlogs(): Promise<Blog[]> {
       content,
       tags
     }`
-  )
+  );
 }
 
 export async function getBlog(slug: string): Promise<Blog> {
@@ -29,10 +29,15 @@ export async function getBlog(slug: string): Promise<Blog> {
       "image": image.asset->url,
       url,
       content,
-      tags
+      tags,
+      seoTitle,
+      seoDescription,
+      seoKeywords,
+      "seoSlug": slug.current,
+      "seoImage": seoImage.asset->url
     }`,
     { slug }
-  )
+  );
 }
 
 export async function getHomes(): Promise<Home[]> {
@@ -58,7 +63,7 @@ export async function getHomes(): Promise<Home[]> {
         }
       }
     }`
-  )
+  );
 }
 
 export async function getWorks(): Promise<Work[]> {
@@ -75,7 +80,7 @@ export async function getWorks(): Promise<Work[]> {
       "techStacks": techStacks[].asset->url,
       "projects": projects[]
     }`
-  )
+  );
 }
 
 export async function getHeader(): Promise<Header> {
@@ -89,7 +94,7 @@ export async function getHeader(): Promise<Header> {
         _type != 'reference' => @
       }
     }`
-  )
+  );
 }
 
 export async function getPersonalProjects(): Promise<PersonalProject[]> {
@@ -102,13 +107,16 @@ export async function getPersonalProjects(): Promise<PersonalProject[]> {
       url,
       github,
       "icon": icon.asset->url,
+      shortDescription,
       description,
       techs
     }`
-  )
+  );
 }
 
-export async function getPersonalProject(slug: string): Promise<PersonalProject> {
+export async function getPersonalProject(
+  slug: string
+): Promise<PersonalProject> {
   return client.fetch(
     groq`*[_type=="personalProject" && slug.current==$slug][0]{
       _id,
@@ -119,8 +127,13 @@ export async function getPersonalProject(slug: string): Promise<PersonalProject>
       github,
       "icon": icon.asset->url,
       description,
-      techs
+      techs,
+      seoTitle,
+      seoDescription,
+      seoKeywords,
+      "seoSlug": slug.current,
+      "seoImage": seoImage.asset->url
     }`,
     { slug }
-  )
+  );
 }

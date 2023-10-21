@@ -3,22 +3,31 @@ import { PortableTextBlock } from "sanity";
 type Basic = {
   _id: string;
   _createdAt: string;
-}
+};
 
-export type Blog = Basic & {
-  name: string;
-  slug: string;
-  image: string;
-  url: string;
-  content: PortableTextBlock[];
-  tags: string[];
-}
+type SEOData = {
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
+  seoSlug: string;
+  seoImage: string;
+};
+
+export type Blog = Basic &
+  SEOData & {
+    name: string;
+    slug: string;
+    image: string;
+    url: string;
+    content: PortableTextBlock[];
+    tags: string[];
+  };
 
 type Project = {
   projectName: string;
   projectUrl: string;
   projectIcon: string;
-}
+};
 
 export type Work = Basic & {
   role: string;
@@ -28,42 +37,44 @@ export type Work = Basic & {
   endDate: string;
   description: PortableTextBlock[];
   techStacks: any[];
-  projects: Project[]
-}
+  projects: Project[];
+};
 
 type CTAButton = {
   text: string;
   url: string;
-}
+};
 
 export type Home = Basic & {
   title: string;
   subtitle: PortableTextBlock[];
-  bannerType: 'intro' | 'work';
-  titlePosition: 'left' | 'center' | 'right';
+  bannerType: "intro" | "work";
+  titlePosition: "left" | "center" | "right";
   profilePicture: string;
   ctaButton?: CTAButton;
-  works?: Work[]
-}
+  works?: Work[];
+};
 
 type Navbar = {
   text: string;
   url: string;
   type: "nav" | "sns";
   snsType: string;
-}
+};
 
 export type Header = Basic & {
   title: string;
-  navbars: Navbar[]
-}
+  navbars: Navbar[];
+};
 
-export type PersonalProject= Basic & {
-  title: string;
-  slug: string;
-  url: string;
-  github: string;
-  icon: string;
-  description: PortableTextBlock[];
-  techs: string[];
-}
+export type PersonalProject = Basic &
+  SEOData & {
+    title: string;
+    slug: string;
+    url: string;
+    github: string;
+    icon: string;
+    shortDescription: PortableTextBlock[];
+    description: PortableTextBlock[];
+    techs: string[];
+  };

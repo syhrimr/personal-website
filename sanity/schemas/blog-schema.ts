@@ -51,7 +51,7 @@ const blog = {
           options: { hotspot: true },
           fields: [
             { name: "caption", title: "Caption", type: "string" },
-            { name: "alt", title: "Alternative Text", type: "string" },
+            { name: "alt", title: "Alternative Text", type: "string" }
           ]
         },
         { type: "code" }
@@ -62,36 +62,40 @@ const blog = {
       name: "tags",
       Title: "Tags",
       type: "array",
-      of: [
-        { type: "string" }
-      ],
+      of: [{ type: "string" }],
       group: "content"
     },
     {
-      name: 'seoTitle', 
-      title: 'SEO Title', 
-      type: 'string', 
-      group: 'seo'
+      name: "seoTitle",
+      title: "SEO Title",
+      type: "string",
+      group: "seo"
     },
     {
-      name: 'seoKeywords', 
-      title: 'SEO Keywords', 
-      type: 'string', 
-      group: 'seo'
+      name: "seoDescription",
+      title: "SEO Description",
+      type: "string",
+      group: "seo"
     },
     {
-      name: 'seoSlug', 
-      title: 'SEO Slug', 
-      type: 'slug', 
-      group: 'seo'
+      name: "seoKeywords",
+      title: "SEO Keywords",
+      type: "string",
+      group: "seo"
     },
     {
-      name: 'seoImage', 
-      title: 'SEO Image', 
-      type: 'image', 
-      group: 'seo'
+      name: "seoSlug",
+      title: "SEO Slug",
+      type: "slug",
+      group: "seo"
     },
+    {
+      name: "seoImage",
+      title: "SEO Image",
+      type: "image",
+      group: "seo"
+    }
   ]
-}
+};
 
 export default blog;
