@@ -13,15 +13,18 @@ export default async function BlogPage() {
             What I&apos;ve learned...{" "}
           </h1>
 
-          <p className="inline-block">A blog or documentation page to store for everything that I&apos;ve experienced or learned from any media or working experiences.</p>
+          <p className="inline-block">
+            A blog or documentation page to store for everything that I&apos;ve
+            experienced or learned from any media or working experiences.
+          </p>
         </Balancer>
       </div>
 
-      <div className="flex flex-row flex-wrap gap-8">
+      <div className="flex flex-row flex-wrap gap-6">
         {blogs.map((blog) => (
           <BlogCard key={blog._id} params={blog} />
         ))}
       </div>
     </section>
-  )
+  );
 }

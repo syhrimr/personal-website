@@ -14,15 +14,17 @@ export default async function ProjectsPage() {
             What I&apos;ve created...
           </h1>
 
-          <p className="inline-block">List of personal projects that I&apos;ve created.</p>
+          <p className="inline-block">
+            List of personal projects that I&apos;ve created.
+          </p>
         </Balancer>
       </div>
 
-      <div className="flex flex-row flex-wrap gap-8">
+      <div className="flex flex-row flex-wrap gap-6">
         {projects.map((project) => (
           <ProjectCard key={project._id} params={project} />
         ))}
       </div>
     </section>
-  )
+  );
 }

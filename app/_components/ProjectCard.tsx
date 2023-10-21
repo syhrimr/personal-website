@@ -8,11 +8,12 @@ import { PersonalProject } from "@/types/Schemas";
 import { parseISO, format } from "date-fns";
 
 type Props = {
-  params: PersonalProject
-}
+  params: PersonalProject;
+};
 
 export default function ProjectCard({ params: project }: Props) {
   const publishedDate = format(parseISO(project._createdAt), "dd MMMM yyyy");
+  const isMobile = window.innerWidth < 640;
 
   return (
     <Link
@@ -32,7 +33,11 @@ export default function ProjectCard({ params: project }: Props) {
 
       <div className="flex flex-col flex-1 gap-1 p-2">
         <div className="mb-2">
-          <CustomTags data={project.techs} tagClassess="tag-card" />
+          <CustomTags
+            data={project.techs}
+            expand={isMobile}
+            tagClassess="tag-card"
+          />
         </div>
 
         <div className="font-extrabold text-gradient-primary flex-1">
@@ -40,5 +45,5 @@ export default function ProjectCard({ params: project }: Props) {
         </div>
       </div>
     </Link>
-  )
+  );
 }
