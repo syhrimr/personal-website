@@ -6,6 +6,7 @@ import CustomTags from "./CustomTags";
 import { PersonalProject } from "@/types/Schemas";
 
 import { parseISO, format } from "date-fns";
+import CustomRenderBlock from "./CustomRenderBlock";
 
 type Props = {
   params: PersonalProject;
@@ -42,8 +43,12 @@ export default function ProjectCard({ params: project }: Props) {
           />
         </div>
 
-        <div className="font-extrabold text-gradient-primary flex-1">
+        <div className="font-extrabold text-gradient-primary">
           <Balancer>{project.title}</Balancer>
+        </div>
+
+        <div className="block-ellipsis mb-1">
+          <CustomRenderBlock params={project.shortDescription} />
         </div>
       </div>
     </Link>

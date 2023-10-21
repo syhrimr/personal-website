@@ -28,3 +28,10 @@ html {
 .header-sticky {
   @apply fixed top-0 w-full;
 }
+
+.block-ellipsis p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
+}
