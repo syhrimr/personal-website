@@ -13,7 +13,6 @@ type Props = {
 
 export default function ProjectCard({ params: project }: Props) {
   const publishedDate = format(parseISO(project._createdAt), "dd MMMM yyyy");
-  const isMobile = window.innerWidth < 640;
 
   return (
     <Link
@@ -35,7 +34,7 @@ export default function ProjectCard({ params: project }: Props) {
         <div className="mb-2">
           <CustomTags
             data={project.techs}
-            expand={isMobile}
+            expand={false}
             tagClassess="tag-card"
           />
         </div>
