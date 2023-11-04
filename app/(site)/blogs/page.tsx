@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   description: "List of personal blogs and documentation",
   metadataBase: new URL("https://syhrimr.vercel.app"),
   openGraph: {
-    title: "Syahri - Projects",
+    title: "Blogs",
     description: "List of personal projects",
-    url: "https://syhrimr.vercel.app/projects",
-    siteName: "syhrimr",
+    url: "https://syhrimr.vercel.app/blogs",
+    siteName: "Syahri Website",
     locale: "en_US",
     type: "website"
   }

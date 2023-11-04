@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
     description: blog.seoDescription,
     metadabase: new URL(`${baseUrl}`),
     openGraph: {
-      title: `Syahri - ${blog.seoTitle}`,
+      title: `${blog.seoTitle}`,
       description: blog.seoDescription,
       url: `${baseUrl}/blog/${blog.seoSlug}`,
       images: [
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props) {
           height: 256
         }
       ],
-      siteName: `Syahri - ${blog.seoTitle}`,
+      siteName: `Syahri Website`,
       locale: "en_US",
       type: "website"
     }

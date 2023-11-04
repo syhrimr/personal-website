@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Syahri - Portfolio",
     description: "Personal website for portfolio showcase",
     url: "https://syhrimr.vercel.app",
-    siteName: "Syahri - Portfolio",
+    siteName: "Syahri Website",
     locale: "en_US",
     type: "website"
   }
