@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     siteName: "Syahri Website",
     locale: "en_US",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Syahri - Portfolio",
+    description: "Personal website for portfolio showcase"
   }
 };
 

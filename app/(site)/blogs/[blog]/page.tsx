@@ -15,16 +15,12 @@ export async function generateMetadata({ params }: Props) {
   const slug = params.blog;
   const blog = await getBlog(slug);
 
-  const baseUrl = "https://syhrimr.vercel.app";
-
   return {
     title: blog.seoTitle,
     description: blog.seoDescription,
-    metadabase: new URL(`${baseUrl}`),
     openGraph: {
       title: `${blog.seoTitle}`,
       description: blog.seoDescription,
-      url: `${baseUrl}/blog/${blog.seoSlug}`,
       images: [
         {
           url: blog.seoImage,
@@ -35,6 +31,16 @@ export async function generateMetadata({ params }: Props) {
       siteName: `Syahri Website`,
       locale: "en_US",
       type: "website"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${blog.seoTitle}`,
+      description: blog.seoDescription,
+      images: [
+        {
+          url: blog.seoImage
+        }
+      ]
     }
   };
 }

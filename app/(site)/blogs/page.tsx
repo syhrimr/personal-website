@@ -7,14 +7,17 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blogs",
   description: "List of personal blogs and documentation",
-  metadataBase: new URL("https://syhrimr.vercel.app"),
   openGraph: {
     title: "Blogs",
     description: "List of personal projects",
-    url: "https://syhrimr.vercel.app/blogs",
     siteName: "Syahri Website",
     locale: "en_US",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blogs",
+    description: "List of personal projects"
   }
 };
 
