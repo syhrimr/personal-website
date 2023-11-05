@@ -77,6 +77,13 @@ const personalProject = {
       group: "seo"
     },
     {
+      name: "seoSlug",
+      title: "SEO Slug",
+      type: "slug",
+      options: { source: "seoTitle" },
+      group: "seo"
+    },
+    {
       name: "seoDescription",
       title: "SEO Description",
       type: "string",
@@ -86,12 +93,6 @@ const personalProject = {
       name: "seoKeywords",
       title: "SEO Keywords",
       type: "string",
-      group: "seo"
-    },
-    {
-      name: "seoSlug",
-      title: "SEO Slug",
-      type: "slug",
       group: "seo"
     },
     {

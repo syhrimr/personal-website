@@ -72,6 +72,13 @@ const blog = {
       group: "seo"
     },
     {
+      name: "seoSlug",
+      title: "SEO Slug",
+      type: "slug",
+      options: { source: "seoTitle" },
+      group: "seo"
+    },
+    {
       name: "seoDescription",
       title: "SEO Description",
       type: "string",
@@ -81,12 +88,6 @@ const blog = {
       name: "seoKeywords",
       title: "SEO Keywords",
       type: "string",
-      group: "seo"
-    },
-    {
-      name: "seoSlug",
-      title: "SEO Slug",
-      type: "slug",
       group: "seo"
     },
     {
